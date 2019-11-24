@@ -1,0 +1,48 @@
+
+ /* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+		#form{
+	background-color:maroon;
+	color:white;
+	border-radius: 23%;
+	border: 3px solid white;
+	opacity: 0.9;
+}
+.brandy{
+	color:green;
+	text-shadow: 1px 1px 1px #000;
+	font-size: 31px;
+}
+.pagecontent{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 8%;
+	margin-right:24%;
+
+}
+.signform{
+	border: 5px dotted black;
+	background-color: azure;
+}
+.inform{
+	margin:33px;
+}
