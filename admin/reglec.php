@@ -10,6 +10,9 @@ elseif(isset($_SESSION['username'])){
 }
 require '../logis.php';
 require 'reglecis.php';
+
+ $resultn = mysqli_query($conn,"SELECT * FROM users WHERE user_type='LECTURER' AND status= 'ACTIVE'" );
+ $rows = mysqli_num_rows($resultn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,18 +87,32 @@ require 'reglecis.php';
           $url = "http//:$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
           if(strpos($url, "reglec.php?success") == true){
-            echo '<div class="alert alert-success left-icon-alert" role="alert" style="text-align:center;">
+            echo '<div class="alert alert-success alert-dismissable" role="alert" style="text-align:center;">
                                             <strong>Lecturer added successfully!</strong> 
                                         </div>';
           }
+          else if(strpos($url, "reglec.php?staffnoexists?")==true){
+            echo '<div class="alert alert-danger alert-dismissable" role="alert" style="text-align:center;">
+                                            <strong>EMAIL OR STAFF NO EXISTS!</strong> 
+                                        </div>';
+          }
           else if(strpos($url, "reglec.php?failed")==true){
-            echo '<div class="alert alert-danger left-icon-alert" role="alert" style="text-align:center;">
+            echo '<div class="alert alert-danger alert-dismissable" role="alert" style="text-align:center;">
                                             <strong>EMAIL OR STAFF NO EXISTS!</strong> 
                                         </div>';
           }
           ?>
              <div class="col-md-8">
-              <form method="POST" name="reglec" action="reglecis.php">
+          <p><b>ACTIVE LECTURERS:</b> &nbsp; <span style="font-size: 46px; color: green;"><?php echo $rows; ?></span></p>
+             <?php 
+              if(isset($_GET['editLec'])){
+                $id = $_GET['editLec'];
+                echo '<form method="POST" name="editlec" action="editlec.php?id='.$id.'">'; 
+              }else{
+                 echo '<form method="POST" name="reglec" action="reglecis.php">';
+              } 
+              
+             ?>
                 <div class="form-group">
                   <label for="firstname">Firstname:</label>
                   <input type="text" class="form-control" name="firstname" required>
@@ -113,11 +130,19 @@ require 'reglecis.php';
                   <label for="email">Email:</label>
                   <input type="text" class="form-control" name="email" required>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="password">Password:</label>
                   <input type="password" class="form-control" name="password" maxlength="8" minlength="8" requireed>
-                </div>
-                <button type="submit" class="btn btn-success" name="reglec" value="register" style="margin-top: 15px;">Register</button>
+                </div> -->
+                <?php 
+                  if(isset($_GET['editLec'])){
+
+                    $lec_id = $_GET['editLec'];
+                     echo '<button type="submit" class="btn btn-success" name="editlec" value="register" style="margin-top: 15px;">Change</button>';
+                  }else{
+                    echo '<button type="submit" class="btn btn-success" name="reglec" value="register" style="margin-top: 15px;">Register</button>';
+                  }
+                 ?>
               </form>
 
             </div>

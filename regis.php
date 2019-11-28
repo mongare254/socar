@@ -17,7 +17,7 @@ if(isset($_POST['regbut'])){
 	if($count==0){
 		
 		
-		$sql = "INSERT INTO users (id,firstname, secondname, email,password,staff_reg_no,course,user_type)VALUES ('', '$firstname', '$secondname','$email','$password','$admno','$coursetitle','STUDENT')";
+		$sql = "INSERT INTO users (id,firstname, secondname, email,password,staff_reg_no,course,user_type,status)VALUES ('', '$firstname', '$secondname','$email','$password','$admno','$coursetitle','STUDENT','ACTIVE')";
 		if ($conn->query($sql) === TRUE) {
 			header('Location:login.php');
 		} else {

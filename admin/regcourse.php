@@ -96,6 +96,11 @@ require 'adcorse.php';
                                         </div>';
           }
           ?>
+          <?php
+             $result = mysql_query("SELECT * FROM courses");
+             $rows = mysql_num_rows($result);
+  
+          echo"<p><b>Courses registered:</b>";  echo $rows; echo"</p>";?>
                 <form method="POST" action="adcorse.php">
                   <div class="form-group">
                     <label >Course Code:</label>

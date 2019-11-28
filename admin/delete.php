@@ -3,7 +3,7 @@
 // connect to the database
 // require '../dbconnect.php';
 include 'getlect.php';
-
+include 'getstud.php';
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -17,21 +17,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
 {
 // get the 'id' variable from the URL
 $id = $_GET['id'];
-
-// delete record from database
-// if ($stmt = $conn->prepare("DELETE * FROM users WHERE id =?"))
-// {
-// $stmt->bind_param("i",$id);
-// $stmt->execute();
-// $stmt->close();
-// }
-// else
-// {
-// echo "ERROR: could not prepare SQL statement.";
-// }
-// $conn->close();
-
-// delete user:
 $stmt = "DELETE FROM users WHERE id = '$id'";
 if(mysqli_query($conn, $stmt)){
 		// redirect user after delete is successful

@@ -3,7 +3,7 @@ ini_set('display errors', 1);
 error_reporting('0');
 session_start();
 if(!isset($_SESSION['username'])){
-  header('Location:login.php');
+  header('Location:../login.php');
 }
 elseif(isset($_SESSION['username'])){
   $usrname=$_SESSION['username'];

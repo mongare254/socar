@@ -36,6 +36,8 @@ CREATE TABLE `courses` (
   `staff_reg_no` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
 -- --------------------------------------------------------
 
 --
@@ -58,7 +60,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `secondname`, `email`, `password`, `staff_reg_no`, `course`, `user_type`) VALUES
-(1, 'WILLIAM', 'ONCHURU', 'willmonchuru@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '35302757', 0, 'ADMIN');
+(1, 'WILLIAM', 'ONCHURU', 'will
+  \monchuru@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '35302757', 0, 'ADMIN');
 
 --
 -- Indexes for dumped tables

@@ -7,7 +7,12 @@ margin: 23px 23% 23px;
   border-collapse: collapse;
   width: 100%;
 }
-
+td a button {
+  background-color:teal;
+  border-radius: 23%;
+  size: auto;
+  padding: 5px;
+}
 table td, table th {
   border: 1px solid #ddd;
   padding: 8px;
